@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            text-align: center;
+        }
+        h1 {
+            font-size: 80px;
+            margin: 0;
+            padding: 0;
+            color: #ff6347;
+            text-shadow: 2px 2px 5px rgba(255, 99, 71, 0.6);
+        }
+        .subtext {
+            font-size: 24px;
+            color: #bbb;
+        }
+        .emoji {
+            font-size: 100px;
+            animation: shake 0.5s ease-in-out infinite alternate;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 15px 30px;
+            background-color: #ff6347;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+        .button:hover {
+            background-color: #ff4500;
+        }
+        @keyframes shake {
+            0% {
+                transform: rotate(-10deg);
+            }
+            100% {
+                transform: rotate(10deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1>404</h1>
+        <p class="subtext">Oops! Looks like you've lost your way.</p>
+        <div class="emoji">🙈</div>
+        <p class="subtext">We can't find the page you're looking for.</p>
+        <button class="button" onclick="window.location.href='/'">Back to Home</button>
+    </div>
+</body>
+</html>
