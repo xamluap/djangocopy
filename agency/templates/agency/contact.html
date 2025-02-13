@@ -1,0 +1,522 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Improved head section with resource prioritization -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>PM-Developers</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'agency/assets/img/portfolio/11.jpg' %}" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="{% static 'agency/assets/img/header-bg1.jpg' %}" as="image" fetchpriority="high">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <!-- Font Awesome with better loading strategy -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.3.0/css/all.css" crossorigin="anonymous">
+    
+    <!-- Optimized font loading -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700&display=swap" rel="stylesheet">
+    
+    <!-- Consolidated CSS resources -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'agency/css/styles.css' %}" rel="stylesheet" />
+
+    <style>
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+        .loaded .loading-spinner {
+            display: none;
+        }
+        :root {
+            --navbar-height: 72px;
+            --bg-color: #1a1a1a; /* Dominant color from your image */
+        }
+
+        /* Improved background loading strategy */
+        .masthead {
+            position: relative;
+            background: var(--bg-color);
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .masthead::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                       url('{% static 'agency/assets/img/header-bg1.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            z-index: 0;
+        }
+
+        .loaded .masthead::after {
+            opacity: 1;
+        }
+
+        /* Add LQIP (Low Quality Image Placeholder) */
+        .masthead::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color) url('{% static 'agency/assets/img/header-bg1-low.jpg' %}');
+            background-size: cover;
+            background-position: center;
+            filter: blur(2px);
+            z-index: 0;
+        }
+
+        /* Rest of your existing styles... */
+    </style>
+</head>
+
+<body id="page-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" 
+         id="mainNav" 
+         style="height: var(--navbar-height); z-index: 1030;">
+    </nav>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav" style="background-color: #212529 !important;">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top">
+                PM-Developers
+            </a>
+            <button class="navbar-toggler" type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarResponsive"
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead" style="padding-top: calc(10.5rem + var(--navbar-height));">
+        <!-- Loading spinner -->
+        <div class="loading-spinner">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="masthead-subheading">Welcome To Our website</div>
+            <div class="masthead-heading text-uppercase">It's Nice To Meet You</div>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Tell Me More</a>
+        </div>
+    </header>
+
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Services</h2>
+                <h3 class="section-subheading text-muted">We specialize in creating stunning websites tailored to your needs. Explore our offerings—we’re confident there’s something for you</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">E-Commerce</h4>
+                    <p class="text-muted">Our websites are user-friendly and designed to help your business succeed</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Responsive Design</h4>
+                    <p class="text-muted">Our websites adapt seamlessly to any screen size for an optimal user experience</p>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Web Security</h4>
+                    <p class="text-muted">Our websites are secure, with robust protection to keep your data safe</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid Section - Updated for Modal Functionality -->
+    <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Portfolio</h2>
+                <h3 class="section-subheading text-muted">Explore some of the services we offer.</h3>
+            </div>
+            <div class="row">
+                {% for item in portfolio_items %}
+                <div class="col-lg-4 col-sm-6 mb-4">
+                    <div class="portfolio-item">
+                        <!-- Updated portfolio link with proper modal targeting -->
+                        <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal{{ forloop.counter }}" data-bs-target="#portfolioModal{{ forloop.counter }}">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="{{ item.thumbnail.url }}" alt="{{ item.title }}">
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">{{ item.title }}</div>
+                            <div class="portfolio-caption-subheading text-muted">{{ item.subtitle }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modals - Corrected Structure -->
+    {% for item in portfolio_items %}
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ forloop.counter }}" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="close-modal" data-bs-dismiss="modal" aria-label="Close">
+                    <img src="{% static 'agency/assets/img/close-icon.svg' %}" alt="Close modal">
+                </div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Modal content -->
+                                <h2 class="text-uppercase">{{ item.project_title }}</h2>
+                                <p class="item-intro text-muted">{{ item.intro_text }}</p>
+                                <img class="img-fluid d-block mx-auto" src="{{ item.modal_image.url }}" alt="{{ item.project_title }}">
+                                <p>{{ item.description }}</p>
+                                <ul class="list-inline">
+                                    <li><strong>Client:</strong> {{ item.client }}</li>
+                                    <li><strong>Category:</strong> {{ item.category }}</li>
+                                </ul>
+                                <button class="btn btn-primary btn-xl text-uppercase" data-bs-dismiss="modal" type="button">
+                                    <i class="fas fa-xmark me-1"></i>
+                                    Close Project
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- About-->
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">About</h2>
+                <h3 class="section-subheading text-muted"> We are dedicated to delivering innovative and impactful solutions to meet your unique needs</h3>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'agency/assets/img/about/1.jpg' %}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2024 february </h4>
+                            <h4 class="subheading">Foundational Stage</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted"> We are in the early stages, focusing on establishing a strong business foundation, building our brand, and growing a loyal customer base.</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'agency/assets/img/about/2.jpg' %}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2024 July</h4>
+                            <h4 class="subheading">Growth Stage</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">We’ve built a solid foundation and are now expanding our services, acquiring new customers, and strengthening our market presence.</p></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'agency/assets/img/about/3.jpg' %}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2024 December</h4>
+                            <h4 class="subheading">Transition to Full Service</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">With steady growth, we’re scaling our operations and exploring new opportunities to reach more clients and partners.</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="{% static 'agency/assets/img/about/4.jpg' %}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>2025 February</h4>
+                            <h4 class="subheading">Optimization Stage</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">At this stage, we are refining our processes and optimizing for greater efficiency and profitability.</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>
+                            Be Part
+                            <br />
+                            Of Our
+                            <br />
+                            Story!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Team-->
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Our Amazing Team</h2>
+                <h3 class="section-subheading text-muted">Lead Designer.</h3>
+            </div> 
+            <div class="row">
+
+                <div class="col-lg-12">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="{% static 'agency/assets/img/about/05.jpg' %}" alt="..." />
+                        <h4>Max Paul</h4>
+                        <p class="text-muted">Let's talk</p>
+                        <!-- #<a class="btn btn-dark btn-social mx-2" href="https://twitter.com/Pau####" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>-->
+                        <a class="btn btn-dark btn-social mx-2" href="https://wa.me/254745059143" aria-label="Parveen Anand whatsapp Profile"><i class="fab fa-whatsapp"></i></a>
+                        <!-- <a class="btn btn-dark btn-social mx-2" href="mailto:###@gmail.com" aria-label="Parveen Anand email Profile"><i class="fas fa-envelope"></i></a>-->
+                    </div>
+                </div>
+                <!--
+                -->
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Let our work speak for itself.</p></div>
+            </div>
+        </div>
+    </section>
+    <!-- Clients-->
+    <div class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'agency/assets/img/logos/microsoft.svg' %}" alt="..." aria-label="Microsoft Logo" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'agency/assets/img/logos/google.svg' %}" alt="..." aria-label="Google Logo" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'agency/assets/img/logos/facebook.svg' %}" alt="..." aria-label="Facebook Logo" /></a>
+                </div>
+                <div class="col-md-3 col-sm-6 my-3">
+                    <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="{% static 'agency/assets/img/logos/ibm.svg' %}" alt="..." aria-label="IBM Logo" /></a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <!-- Contact-->
+    <section class="page-section" id="contact">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Contact Us</h2>
+                <h3 class="section-heading text-uppercase">+254 745 059 143</h3>
+            </div>
+            <!-- * * * * * * * * * * * * * * *-->
+            <!-- * * Django Contact Form * *-->
+            <!-- * * * * * * * * * * * * * * *-->
+            
+            <form method="post" id="contactForm" onsubmit="submitForm(event)">
+                {% csrf_token %}
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <!-- Name input-->
+                            <input class="form-control" id="id_name" type="text" placeholder="Your Name *" name="name" required />
+                            <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <!-- Email address input-->
+                            <input class="form-control" id="id_email" type="email" placeholder="Your Email *" name="email" required />
+                            <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
+                            <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                        </div>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <!-- Message input-->
+                            <textarea class="form-control" id="id_message" placeholder="Your Message *" name="message" required></textarea>
+                            <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Submit success message-->
+                <div class="d-none" id="submitSuccessMessage">
+                    <div class="text-center text-white mb-3">
+                        <div class="fw-bolder">Form submission successful!</div>
+                    </div>
+                </div>
+                <!-- Submit error message-->
+                <div class="d-none" id="submitErrorMessage">
+                    <div class="text-center text-danger mb-3">Error sending message!</div>
+                </div>
+                <!-- Submit Button-->
+                <div class="text-center">
+                    <button class="btn btn-primary btn-xl text-uppercase" id="submitButton" type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    <!-- Footer-->
+    <footer class="footer py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-lg-start">Copyright &copy; PM-Developers 2025</div>
+                <div class="col-lg-4 my-3 my-lg-0">
+                    <!-- <a class="btn btn-dark btn-social mx-2" href="https://twitter.com/Paul####" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter" target="_blank" ></i></a>-->
+                    <a class="btn btn-dark btn-social mx-2" href="https://wa.me/254745059143" aria-label="Parveen Anand whatsapp Profile"><i class="fab fa-whatsapp" target="_blank" ></i></a>
+                    <!-- <a class="btn btn-dark btn-social mx-2" href="mailto:######@gmail.com" aria-label="Parveen Anand email Profile"><i class="fas fa-envelope" target="_blank" ></i></a>-->
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a class="link-dark text-decoration-none me-3" href="#!">Privacy Policy</a>
+                    <a class="link-dark text-decoration-none" href="#!">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <style>
+        /* Mobile Menu Background Fix */
+        @media (max-width: 991px) {
+            #navbarResponsive {
+                background-color: #212529 !important;
+                padding: 20px;
+                margin-top: 10px;
+                border-radius: 5px;
+            }
+            
+            .navbar-collapse {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                z-index: 1000;
+            }
+            
+            /* Animation fix */
+            .navbar-collapse.collapsing {
+                background-color: #212529;
+                transition: all 0.3s ease;
+            }
+            
+            .navbar-collapse.show {
+                background-color: #212529;
+            }
+        }
+        
+        /* Z-index Fix */
+        .navbar {
+            z-index: 1030;
+        }
+    </style>
+    <script>
+            // Close mobile menu when clicking nav links
+        document.querySelectorAll('#navbarResponsive .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const navbarCollapse = bootstrap.Collapse.getInstance(document.getElementById('navbarResponsive'));
+                if (navbarCollapse) {
+                    navbarCollapse.hide();
+                }
+                document.querySelector('.navbar-toggler').setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Additional fix for smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        // Progressive image loading with proper error handling
+        function loadBackground() {
+        const spinner = document.querySelector('.loading-spinner');
+        const highResUrl = "{% static 'agency/assets/img/header-bg1.jpg' %}";
+        
+        // Start loading immediately with high priority
+        fetch(highResUrl, { priority: 'high' })
+            .then(response => {
+                const img = new Image();
+                img.src = highResUrl;
+                img.onload = () => {
+                    document.body.classList.add('loaded');
+                    spinner.style.display = 'none';
+                };
+                img.onerror = () => {
+                    console.error('Background image failed to load');
+                    spinner.style.display = 'none';
+                };
+            })
+            .catch(error => {
+                console.error('Fetch error:', error);
+                spinner.style.display = 'none';
+            });
+    }
+
+    // Start loading immediately after critical resources
+    document.addEventListener('DOMContentLoaded', loadBackground);
+    </script>
+    
+    <style>
+        /* Add these z-index fixes */
+        .masthead::after {
+            transition: opacity 0.8s ease-in-out;
+        }
+    
+    /* Hide low-quality image when high-res loads */
+        .loaded .masthead::before {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .masthead .container {
+            position: relative;
+            z-index: 3;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
